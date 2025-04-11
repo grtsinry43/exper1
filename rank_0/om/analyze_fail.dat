@@ -1,0 +1,185 @@
+# [No.1] construct_wrapper.20513
+# In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/train/dataset_helper.py(94)/    def construct(self):/
+funcgraph fg_20513(
+        %para1 : Ref[Tensor(F32)][64, 1, 4, 4]    # encoder.conv_layers.0.weight
+        , %para2 : Ref[Tensor(F32)][128, 64, 4, 4]    # encoder.conv_layers.2.weight
+        , %para3 : Ref[Tensor(F32)][256, 128, 4, 4]    # encoder.conv_layers.4.weight
+        , %para4 : Ref[Tensor(F32)][512, 4096]    # encoder.dense_layers.0.weight
+        , %para5 : Ref[Tensor(F32)][512]    # encoder.dense_layers.0.bias
+        , %para6 : Ref[Tensor(F32)][20, 512]    # encoder.fc_mu.weight
+        , %para7 : Ref[Tensor(F32)][20]    # encoder.fc_mu.bias
+        , %para8 : Ref[Tensor(F32)][20, 512]    # encoder.fc_logvar.weight
+        , %para9 : Ref[Tensor(F32)][20]    # encoder.fc_logvar.bias
+        , %para10 : Ref[Tensor(F32)][512, 20]    # decoder.dense_layers.0.weight
+        , %para11 : Ref[Tensor(F32)][512]    # decoder.dense_layers.0.bias
+        , %para12 : Ref[Tensor(F32)][4096, 512]    # decoder.dense_layers.2.weight
+        , %para13 : Ref[Tensor(F32)][4096]    # decoder.dense_layers.2.bias
+        , %para14 : Ref[Tensor(F32)][256, 128, 4, 4]    # decoder.deconv_layers.0.weight
+        , %para15 : Ref[Tensor(F32)][128, 64, 4, 4]    # decoder.deconv_layers.2.weight
+        , %para16 : Ref[Tensor(F32)][64, 1, 4, 4]    # decoder.deconv_layers.4.weight
+        , %para17 : Ref[Tensor(F32)][1]    # beta1_power
+        , %para18 : Ref[Tensor(F32)][1]    # beta2_power
+        , %para19 : Ref[Tensor(F32)][64, 1, 4, 4]    # moment1.encoder.conv_layers.0.weight
+        , %para20 : Ref[Tensor(F32)][128, 64, 4, 4]    # moment1.encoder.conv_layers.2.weight
+        , %para21 : Ref[Tensor(F32)][256, 128, 4, 4]    # moment1.encoder.conv_layers.4.weight
+        , %para22 : Ref[Tensor(F32)][512, 4096]    # moment1.encoder.dense_layers.0.weight
+        , %para23 : Ref[Tensor(F32)][512]    # moment1.encoder.dense_layers.0.bias
+        , %para24 : Ref[Tensor(F32)][20, 512]    # moment1.encoder.fc_mu.weight
+        , %para25 : Ref[Tensor(F32)][20]    # moment1.encoder.fc_mu.bias
+        , %para26 : Ref[Tensor(F32)][20, 512]    # moment1.encoder.fc_logvar.weight
+        , %para27 : Ref[Tensor(F32)][20]    # moment1.encoder.fc_logvar.bias
+        , %para28 : Ref[Tensor(F32)][512, 20]    # moment1.decoder.dense_layers.0.weight
+        , %para29 : Ref[Tensor(F32)][512]    # moment1.decoder.dense_layers.0.bias
+        , %para30 : Ref[Tensor(F32)][4096, 512]    # moment1.decoder.dense_layers.2.weight
+        , %para31 : Ref[Tensor(F32)][4096]    # moment1.decoder.dense_layers.2.bias
+        , %para32 : Ref[Tensor(F32)][256, 128, 4, 4]    # moment1.decoder.deconv_layers.0.weight
+        , %para33 : Ref[Tensor(F32)][128, 64, 4, 4]    # moment1.decoder.deconv_layers.2.weight
+        , %para34 : Ref[Tensor(F32)][64, 1, 4, 4]    # moment1.decoder.deconv_layers.4.weight
+        , %para35 : Ref[Tensor(F32)][64, 1, 4, 4]    # moment2.encoder.conv_layers.0.weight
+        , %para36 : Ref[Tensor(F32)][128, 64, 4, 4]    # moment2.encoder.conv_layers.2.weight
+        , %para37 : Ref[Tensor(F32)][256, 128, 4, 4]    # moment2.encoder.conv_layers.4.weight
+        , %para38 : Ref[Tensor(F32)][512, 4096]    # moment2.encoder.dense_layers.0.weight
+        , %para39 : Ref[Tensor(F32)][512]    # moment2.encoder.dense_layers.0.bias
+        , %para40 : Ref[Tensor(F32)][20, 512]    # moment2.encoder.fc_mu.weight
+        , %para41 : Ref[Tensor(F32)][20]    # moment2.encoder.fc_mu.bias
+        , %para42 : Ref[Tensor(F32)][20, 512]    # moment2.encoder.fc_logvar.weight
+        , %para43 : Ref[Tensor(F32)][20]    # moment2.encoder.fc_logvar.bias
+        , %para44 : Ref[Tensor(F32)][512, 20]    # moment2.decoder.dense_layers.0.weight
+        , %para45 : Ref[Tensor(F32)][512]    # moment2.decoder.dense_layers.0.bias
+        , %para46 : Ref[Tensor(F32)][4096, 512]    # moment2.decoder.dense_layers.2.weight
+        , %para47 : Ref[Tensor(F32)][4096]    # moment2.decoder.dense_layers.2.bias
+        , %para48 : Ref[Tensor(F32)][256, 128, 4, 4]    # moment2.decoder.deconv_layers.0.weight
+        , %para49 : Ref[Tensor(F32)][128, 64, 4, 4]    # moment2.decoder.deconv_layers.2.weight
+        , %para50 : Ref[Tensor(F32)][64, 1, 4, 4]    # moment2.decoder.deconv_layers.4.weight
+        , %para51 : Ref[Tensor(F32)][]    # learning_rate
+        , %para52 : Ref[Tensor(I32)][1]    # global_step
+    ) {
+
+#------------------------> 0
+    %1 = FuncGraph::fg_20515()    # fg_20515=construct.20515 #scope: Default
+#[CNode]20523
+    Primitive::Return{prim_type=1}(%1)    #(Undefined) #scope: Default
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/train/dataset_helper.py(96)/        return self.network(*outputs)/#[CNode]20524
+}
+# order:
+#   1: construct_wrapper.20513:[CNode]20523{[0]: ValueNode<FuncGraph> construct.20515}
+#   2: construct_wrapper.20513:[CNode]20524{[0]: ValueNode<Primitive> Return, [1]: [CNode]20523}
+
+
+# [No.2] construct.20515
+# In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/train/dataset_helper.py(94)/    def construct(self):/
+funcgraph fg_20515[fg_20513](
+) {
+    %1 : Tuple[Tensor(F32),Tensor(I32)] = DoSignaturePrimitive::S-Prim-GetNext{prim_type=1}[output_num=I64(2), shapes=[[I64(64), I64(1), I64(32), I64(32)], [I64(64)]], shared_name="6a5c3e70-162d-11f0-8b20-0255ac100054", types=[F32, I32]]() #scope: Default
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/train/dataset_helper.py(95)/        outputs = self.get_next()/#outputs
+
+#------------------------> 1
+    %2 = UnpackCall::unpack_call(FuncGraph::fg_20525, %1)    #(Func, Tuple[Tensor(F32),Tensor(I32)])    # fg_20525=construct.20525 #scope: Default
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/train/dataset_helper.py(96)/        return self.network(*outputs)/#[CNode]20526
+    Primitive::Return{prim_type=1}(%2)    #(Undefined) #scope: Default
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/train/dataset_helper.py(96)/        return self.network(*outputs)/#[CNode]20527
+}
+# order:
+#   1: construct.20515:outputs{[0]: ValueNode<DoSignaturePrimitive> S-Prim-GetNext}
+#   2: construct.20515:[CNode]20526{[0]: ValueNode<UnpackCall> unpack_call.20528, [1]: ValueNode<FuncGraph> construct.20525, [2]: outputs}
+#   3: construct.20515:[CNode]20527{[0]: ValueNode<Primitive> Return, [1]: [CNode]20526}
+
+
+# [No.3] UnpackCall.20516
+
+funcgraph fg_20516(
+        %para53 : Func    # 20517
+        , %para54 : Tuple[Tensor(F32),Tensor(I32)]    # 20518
+    ) {
+    %1 : Tensor(F32)[64, 1, 32, 32] = Primitive::TupleGetItem{prim_type=1}(%para54, I64(0))    #(Tuple[Tensor(F32),Tensor(I32)], I64) #scope: Default
+#20529
+    %2 : Tensor(I32)[64] = Primitive::TupleGetItem{prim_type=1}(%para54, I64(1))    #(Tuple[Tensor(F32),Tensor(I32)], I64) #scope: Default
+#20530
+
+#------------------------> 2
+    %3 = %para53(%1, %2)    #(Tensor(F32)[64, 1, 32, 32], Tensor(I32)[64]) #scope: Default
+#20531
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default
+#20532
+}
+# order:
+#   1: UnpackCall.20516:20531{[0]: 20517, [1]: 20529, [2]: 20530}
+#   2: UnpackCall.20516:20532{[0]: ValueNode<Primitive> Return, [1]: 20531}
+
+
+# [No.4] construct.20519
+# In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(372)/    def construct(self, *inputs):/
+funcgraph fg_20519[fg_20513](
+        %para55 : Tensor(F32)[64, 1, 32, 32]    # inputs0
+        , %para56 : Tensor(I32)[64]    # inputs1
+    ) {
+    %1 : Tuple[Tensor(F32),Tensor(I32)] = Primitive::MakeTuple{prim_type=1}(%para55, %para56)    #(Tensor(F32)[64, 1, 32, 32], Tensor(I32)[64]) #scope: Default
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(372)/    def construct(self, *inputs):/#[CNode]20533
+
+#------------------------> 3
+    %2 = UnpackCall::unpack_call(FuncGraph::fg_20514, %1)    #(Func, Tuple[Tensor(F32),Tensor(I32)])    # fg_20514=construct.20514 #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(373)/        loss = self.network(*inputs)/#loss
+    %3 = Primitive::getattr{prim_type=1}(%2, "dtype")    #(Undefined, Undefined) #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(374)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/#[CNode]20534
+    %4 = Primitive::getattr{prim_type=1}(%2, "shape")    #(Undefined, Undefined) #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(374)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/#[CNode]20535
+    %5 = DoSignaturePrimitive::S-Prim-Fill{prim_type=1}(%3, %4, F32(1))    #(Undefined, Undefined, Undefined) #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(374)/        sens = F.fill(loss.dtype, loss.shape, self.sens)/#sens
+    %6 = DoSignaturePrimitive::S-Prim-MakeTuple{prim_type=1}(%5)    #(Undefined) #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(375)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#[CNode]20536
+    %7 = UnpackGraphPrimitive::UnpackGraph{prim_type=1}(FuncGraph::fg_20514, %1, %6)    #(Undefined, Tuple[Tensor(F32),Tensor(I32)], Undefined)    # fg_20514=construct.20514 #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(375)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %8 = Primitive::MakeTuple{prim_type=1}(%para1, %para2, %para3, %para4, %para5, %para6, %para7, %para8, %para9, %para10, %para11, %para12, %para13, %para14, %para15, %para16)    #(Ref[Tensor(F32)][64, 1, 4, 4], Ref[Tensor(F32)][128, 64, 4, 4], Ref[Tensor(F32)][256, 128, 4, 4], Ref[Tensor(F32)][512, 4096], Ref[Tensor(F32)][512], Ref[Tensor(F32)][20, 512], Ref[Tensor(F32)][20], Ref[Tensor(F32)][20, 512], Ref[Tensor(F32)][20], Ref[Tensor(F32)][512, 20], Ref[Tensor(F32)][512], Ref[Tensor(F32)][4096, 512], Ref[Tensor(F32)][4096], Ref[Tensor(F32)][256, 128, 4, 4], Ref[Tensor(F32)][128, 64, 4, 4], Ref[Tensor(F32)][64, 1, 4, 4]) #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(375)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#[CNode]20537
+    %9 = DoSignaturePrimitive::S-Prim-grad{prim_type=1}(%7, %8)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(375)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %10 = UnpackCall::unpack_call(%9, %1, %6)    #(Undefined, Tuple[Tensor(F32),Tensor(I32)], Undefined) #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(375)/        grads = self.grad(self.network, self.weights)(*inputs, sens)/#grads
+    %11 = DoSignaturePrimitive::S-Prim-identity{prim_type=1}[side_effect_propagate=I64(1)](%10)    #(Undefined) #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(376)/        grads = self.grad_reducer(grads)/#grads
+    %12 = FuncGraph::fg_20538(%11)    #(Undefined)    # fg_20538=construct.20538 #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(377)/        loss = F.depend(loss, self.optimizer(grads))/#[CNode]20539
+    %13 = DoSignaturePrimitive::S-Prim-Depend{prim_type=1}[side_effect_propagate=I64(1)](%2, %12)    #(Undefined, Undefined) #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(377)/        loss = F.depend(loss, self.optimizer(grads))/#loss
+    Primitive::Return{prim_type=1}(%13)    #(Undefined) #scope: Default/network-TrainOneStepCell
+      # In file /home/ma-user/anaconda3/envs/MindSpore/lib/python3.7/site-packages/mindspore/nn/wrap/cell_wrapper.py(378)/        return loss/#[CNode]20540
+}
+# order:
+#   1: construct.20519:loss{[0]: ValueNode<UnpackCall> unpack_call.20541, [1]: ValueNode<FuncGraph> construct.20514, [2]: [CNode]20533}
+#   2: construct.20519:[CNode]20534{[0]: ValueNode<Primitive> getattr, [1]: loss, [2]: ValueNode<StringImm> dtype}
+#   3: construct.20519:[CNode]20535{[0]: ValueNode<Primitive> getattr, [1]: loss, [2]: ValueNode<StringImm> shape}
+#   4: construct.20519:sens{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Fill, [1]: [CNode]20534, [2]: [CNode]20535, [3]: ValueNode<FP32Imm> 1.000000}
+#   5: construct.20519:[CNode]20536{[0]: ValueNode<DoSignaturePrimitive> S-Prim-MakeTuple, [1]: sens}
+#   6: construct.20519:grads{[0]: ValueNode<UnpackGraphPrimitive> UnpackGraph, [1]: ValueNode<FuncGraph> construct.20514, [2]: [CNode]20533, [3]: [CNode]20536}
+#   7: construct.20519:grads{[0]: ValueNode<DoSignaturePrimitive> S-Prim-grad, [1]: grads, [2]: [CNode]20537}
+#   8: construct.20519:grads{[0]: ValueNode<UnpackCall> unpack_call.20542, [1]: grads, [2]: [CNode]20533, [3]: [CNode]20536}
+#   9: construct.20519:grads{[0]: ValueNode<DoSignaturePrimitive> S-Prim-identity, [1]: grads}
+#  10: construct.20519:[CNode]20539{[0]: ValueNode<FuncGraph> construct.20538, [1]: grads}
+#  11: construct.20519:loss{[0]: ValueNode<DoSignaturePrimitive> S-Prim-Depend, [1]: loss, [2]: [CNode]20539}
+#  12: construct.20519:[CNode]20540{[0]: ValueNode<Primitive> Return, [1]: loss}
+
+
+# [No.5] UnpackCall.20520
+
+funcgraph fg_20520(
+        %para57 : Func    # 20521
+        , %para58 : Tuple[Tensor(F32),Tensor(I32)]    # 20522
+    ) {
+    %1 : Tensor(F32)[64, 1, 32, 32] = Primitive::TupleGetItem{prim_type=1}(%para58, I64(0))    #(Tuple[Tensor(F32),Tensor(I32)], I64) #scope: Default/network-TrainOneStepCell
+#20543
+    %2 : Tensor(I32)[64] = Primitive::TupleGetItem{prim_type=1}(%para58, I64(1))    #(Tuple[Tensor(F32),Tensor(I32)], I64) #scope: Default/network-TrainOneStepCell
+#20544
+
+#------------------------> 4
+    %3 = %para57(%1, %2)    #(Tensor(F32)[64, 1, 32, 32], Tensor(I32)[64]) #scope: Default/network-TrainOneStepCell
+#20545
+    Primitive::Return{prim_type=1}(%3)    #(Undefined) #scope: Default/network-TrainOneStepCell
+#20546
+}
+# order:
+#   1: UnpackCall.20520:20545{[0]: 20521, [1]: 20543, [2]: 20544}
+#   2: UnpackCall.20520:20546{[0]: ValueNode<Primitive> Return, [1]: 20545}
+
+
+#===============================================================================
+# num of function graphs in stack: 5
